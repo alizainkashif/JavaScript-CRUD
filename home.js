@@ -2,8 +2,11 @@
 // Modal Functionality
 
 let modalContainer = document.getElementById("addmodalContainer");
-let updateProductsButton = document.getElementById("updateProductsButton");
 let tableBody = document.getElementById("tableBody");
+let dataArray = []
+let flag = false
+let nindex = null
+let btnValue = 0
 
 // Add Products Functionality
 let showModalButton = document.querySelector('#addModalButton')
@@ -23,14 +26,13 @@ closeModalButton.addEventListener('click',function () {
 })
   showModalButton.addEventListener('click',function() {
     modalContainer.style.display = 'block'
-    updateProductsButton.style.display = 'none'
+    // updateProductsButton.style.display = 'none'
 
 })
 
 let addProductsButton = document.getElementById('addProductsButton');
-let dataArray = []
 addProductsButton.addEventListener('click',function() {
-    let addedProducts = {
+    let productDetails = {
       productID:addProductID.value,
       productName:addProductName.value,
       productTitle:addProductTitle.value,
@@ -38,9 +40,27 @@ addProductsButton.addEventListener('click',function() {
     }
 
 
-    dataArray.push(addedProducts);
+    if(flag) {
+      let copy = [...dataArray]
+            copy[nindex].productID = addProductID.value;
+            copy[nindex].productName = addProductName.value;
+            copy[nindex].productTitle = addProductTitle.value;
+            copy[nindex].productVendor = addProductVendor.value;
+          localStorage.setItem("addedProducts" , JSON.stringify(copy));
+          flag = false
+          nindex = null
+    }else {
+      let productDetails = {
+        productID:addProductID.value,
+        productName:addProductName.value,
+        productTitle:addProductTitle.value,
+        productVendor:addProductVendor.value,
+      }
+      dataArray.push(productDetails)
+    // console.log(productDetails)
     localStorage.setItem('addedProducts',JSON.stringify(dataArray));
-    console.log(dataArray)
+    // console.log(dataArray)
+    }
 
   modalContainer.style.display = 'none'
 
@@ -80,15 +100,23 @@ function deleteProducts(index) {
 function editProducts(index) {
 
   modalContainer.style.display = 'block'
-  updateProductsButton.style.display = 'inline'
-  addProductsButton.style.display = 'none'
+  if(btnValue == 0) {
   modalTitle.innerHTML = 'Edit Product'
+  addProductsButton.innerHTML = 'Update'
+  btnValue++;
+  } else {
+    modalTitle.innerHTML = 'Add Product'
+  addProductsButton.innerHTML = 'Add'
+  btnValue--;
+  }
   let products = dataArray[index]
 
   addProductID.value = products.productID
   addProductName.value = products.productName
   addProductTitle.value = products.productTitle
   addProductVendor.value = products.productVendor
+  flag = true
+  nindex = index
 
 }
 
@@ -98,6 +126,11 @@ function retrieveData() {
       dataArray = JSON.parse(savedData);
   }
 }
+
+let logoutButton = document.getElementById('logoutButton')
+logoutButton.addEventListener('click',function() {
+  window.location.replace('login.html')
+})
 
 retrieveData();
 
