@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <input type="text" id="input2">
+    <button id="btn" >click</button>
+    <ul id="ul">
+
+    </ul>
+
+    <script>
+        let input = document.getElementById('input')
+        let input2 = document.getElementById('input2')
+        let button = document.getElementById('btn')
+        let ul = document.getElementById('ul')
+        let flag = false
+        // let flag = 0
+        let index = null
+        
+        let r = JSON.parse(localStorage.getItem("tsk")) || [];
+
+        // console.log(r)
+
+        button.addEventListener('click',function() {
+           
+        if(flag) {
+            let copy = [...r]
+            copy[index].userN = input.value;
+            copy[index].userpwd = input2.value;
+          localStorage.setItem("tsk" , JSON.stringify(copy));
+          flag = false
+          index = null
+
+        } else {
+            let t =  {
+            userN : input.value,
+            userpwd : input2.value,
+           }
+           r.push(t)
+          localStorage.setItem("tsk" , JSON.stringify(r));
+        }
+        
+        dis();
+
+        })
+
+        function dis(){
+            ul.innerHTML = "";
+            r.forEach((element , i) => {
+                ul.innerHTML += `
+                <li>
+                     pswd ${element.userpwd} user  ${element.userN} 
+                     <button onClick = "del(${i})">delete </button>
+                     <button onClick = "edit(${i})">edit </button>
+                </li>`;             
+            });
+
+
+
+        }
+        dis();
+
+        function del(i){
+            r.splice(i,1)
+            console.log(r)
+          localStorage.setItem("tsk" , JSON.stringify(r));
+
+          dis();
+            // console.log(i);
+        }
+
+        function edit(i){
+            const select = r[i];
+            input.value = select.userN
+            input2.value = select.userpwd
+
+            console.log(select)
+            flag = true;
+            // flag = 0
+            index = i
+            console.log(index)
+
+        }
+
+
+
+
+    </script>
+</body>
+</html>

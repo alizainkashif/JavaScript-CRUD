@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript CRUD</h1>
+    </header>
+
+    <main>
+
+      <!-- <div class="search-box">
+        <input type="text" placeholder="Search here..." id="searchInput" autocomplete="off" />
+        <button id="searchButton">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button> <br> <br>
+        <input type="text" placeholder="Add Column..." id="addColumn" autocomplete="off" />
+        <button id="addColumnButton">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+      </div> -->
+
+      <div class="addModalParent" style="text-align: end; width: 77.3%;" >
+        <button id="addModalButton">Add Products</button>
+      </div>
+
+      <div class="container">
+        <table>
+          <thead>
+            <tr id="tableHead">
+              <th>ID</th>
+              <th>Product Name</th>
+              <th>Product title</th>
+              <th>Product vendor</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!--Add Modal -->
+
+  
+<div id="addmodalContainer">
+
+    <!-- Modal Content -->
+    <div class="addModalContent">
+      <h2 id="modalTitle">Add Product</h2>
+
+      <div class="inputBox">
+        <div class="left">
+          <div class="inputs">
+            <label for="addProductID">ID</label>
+            <input type="tel" id="addProductID">
+          </div>
+          <div class="inputs">
+            <label for="addProductTitle">Product Title</label>
+            <input type="text" id="addProductTitle">
+          </div>
+        </div>
+        <div class="right">
+          <div class="inputs">
+            <label for="addProductName">Product Name</label>
+            <input type="text" id="addProductName">
+          </div>
+          <div class="inputs">
+            <label for="ProductVendor">Product Vendor</label>
+            <input type="text" id="addProductVendor">
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button id="updateProductsButton">Update</button>
+        <button id="addProductsButton">Add</button>
+        <button id="mcloseButton">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- &times; -->
+
+
+
+    <script src="home.js"></script>
+  </body>
+</html>

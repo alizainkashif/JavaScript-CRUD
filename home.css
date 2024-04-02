@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+
+/* Use Universal Selector to reset default settings */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+header h1 {
+    font-size: 42px;
+    color: #015eea;
+    font-family:'Segoe UI';
+    margin: 10px 0;
+}
+.container {
+    width: fit-content;
+    margin: 0 auto;
+    overflow:auto;
+    border-radius: 6px;
+    padding-top: 10px;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+}
+table {
+    border-collapse: collapse;
+    background-color: #fff;
+    /* padding: 10px; */
+}
+
+th, td {
+    white-space: nowrap;
+    border: 1px solid #ddd;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 100;
+}
+
+th {
+    font-size: 18px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #015eea;
+}
+
+.delete {
+  background-color: red;
+}
+.edit {
+  background-color: goldenrod;
+}
+
+/* Action Buttons Styling */
+button {
+    padding: 3px 10px;
+    cursor: pointer;
+    margin-top: 3px;
+    display: inline-block;
+    color: white;
+    font-size: 16px;
+    background-color: #4070f4;
+    border: #a68a64;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #fff; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #4070f4;
+    border-radius: 3px;
+    padding: 5px 0; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4070f4;
+  }
+  
+
+
+.actions {
+    width: 10vw;
+}
+
+
+/* Modal */
+
+/* Modal Styles */
+#addmodalContainer {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* filter: blur(4px); */
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  /* Modal Content Styles */
+  .addModalContent {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    width: 55%;
+  }
+  .addModalContent h2 {
+    text-align: center;
+    background-color:#015eea;
+    color: #fff;
+    padding:20px 0 ;
+    font-size: 27px;
+  }
+
+  .addModalContent .inputBox {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 0;
+  }
+  .addModalContent .inputBox .left {
+    width: 50%;
+    /* background-color: #a68a64; */
+  }
+
+  .addModalContent .inputBox .right {
+    width: 50%;
+    /* background-color: #015eea; */
+  }
+  .addModalContent .inputBox .inputs {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+
+  .addModalContent .inputBox .inputs label {
+    padding: 10px;
+    font-weight: bold;
+    width: 50%;
+  }
+  .addModalContent .inputBox .inputs input {
+    width: 80%;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .addModalContent .buttons {
+    text-align: end;
+  }
+  .addModalContent button {
+    padding: 8px 17px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #015eea;
+    color: #fff;
+    border-radius:5px;
+  }
+
+
+
+  /* SearchBar */
+  .search-box {
+    width: 25%;
+    margin-left: 154px;
+    padding-top: 43px;
+    padding: 20px;
+    background-color: #015eea;
+    border-radius: 5px;
+}
+.search-box input {
+  width: 85%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    background: #fff;
+    color: #015eea;
+}
+.search-box button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background: #fff;
+    color: #015eea;
+    cursor: pointer;
+}
+.search-box button i {
+    font-size: 14px;
+}
+.search-box button:hover {
+    background-color: #015eea;
+    color: #fff;
+}
+
+
+@media (max-width:700px) {
+  .container {
+    width: 95%;
+  }
+  .modal-content .inputBox {
+    flex-wrap: wrap;
+  }
+  .modal-content .inputBox .left {
+    width: 100%;
+  }
+  .modal-content .inputBox .right {
+    width: 100%;
+  }
+}
