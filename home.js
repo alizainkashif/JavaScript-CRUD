@@ -6,7 +6,6 @@ let tableBody = document.getElementById("tableBody");
 let dataArray = []
 let flag = false
 let nindex = null
-let btnValue = 0
 
 // Add Products Functionality
 let showModalButton = document.querySelector('#addModalButton')
@@ -32,16 +31,12 @@ closeModalButton.addEventListener('click',function () {
 
 let addProductsButton = document.getElementById('addProductsButton');
 addProductsButton.addEventListener('click',function() {
-    let productDetails = {
-      productID:addProductID.value,
-      productName:addProductName.value,
-      productTitle:addProductTitle.value,
-      productVendor:addProductVendor.value,
-    }
-
+  // modalTitle.innerHTML = 'Add Product'
+  // addProductsButton.innerHTML = 'Add'
 
     if(flag) {
-      let copy = [...dataArray]
+          if(addProductID.value && addProductName.value && addProductTitle.value && addProductVendor.value) {
+            let copy = [...dataArray]
             copy[nindex].productID = addProductID.value;
             copy[nindex].productName = addProductName.value;
             copy[nindex].productTitle = addProductTitle.value;
@@ -49,6 +44,10 @@ addProductsButton.addEventListener('click',function() {
           localStorage.setItem("addedProducts" , JSON.stringify(copy));
           flag = false
           nindex = null
+          } else {
+            alert('Cannot add Empty Data')
+          }
+
     }else {
       let productDetails = {
         productID:addProductID.value,
@@ -100,26 +99,19 @@ function deleteProducts(index) {
   showProducts();
 }
 
-function editProducts(index) {
+function editProducts(i) {
 
   modalContainer.style.display = 'block'
-  if(btnValue == 0) {
   modalTitle.innerHTML = 'Edit Product'
   addProductsButton.innerHTML = 'Update'
-  btnValue++;
-  } else {
-    modalTitle.innerHTML = 'Add Product'
-  addProductsButton.innerHTML = 'Add'
-  btnValue--;
-  }
-  let products = dataArray[index]
+  let products = dataArray[i]
 
   addProductID.value = products.productID
   addProductName.value = products.productName
   addProductTitle.value = products.productTitle
   addProductVendor.value = products.productVendor
   flag = true
-  nindex = index
+  nindex = i
 
 }
 
