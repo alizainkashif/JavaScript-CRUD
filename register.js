@@ -24,10 +24,10 @@
                 localStorage.setItem('registerUser', JSON.stringify(newArray));
             }
 
-            console.log(' data saved successfully')
+            // console.log(' data saved successfully')
 
             window.location.replace('login.html');
-            console.log('Redirecting to login page...');
+            // console.log('Redirecting to login page...');
 
         } catch (error) {
             alert('Error: Unable to save user data. Please try again.');
