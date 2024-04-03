@@ -56,10 +56,13 @@ addProductsButton.addEventListener('click',function() {
         productTitle:addProductTitle.value,
         productVendor:addProductVendor.value,
       }
-      dataArray.push(productDetails)
-    // console.log(productDetails)
+      
+      if(addProductID.value && addProductName.value && addProductTitle.value && addProductVendor.value) {
+        dataArray.push(productDetails)
     localStorage.setItem('addedProducts',JSON.stringify(dataArray));
-    // console.log(dataArray)
+      } else {
+        alert('Cannot add Empty Data')
+      }
     }
 
   modalContainer.style.display = 'none'
