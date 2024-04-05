@@ -1,3 +1,4 @@
+
 let loginEmail = document.getElementById('loginEmail')
 let loginPassword = document.getElementById('loginPassword')
 let loginButton = document.getElementById('loginButton')
@@ -8,9 +9,12 @@ loginButton.addEventListener('click',function(event) {
     // console.log(data)
     for(let i = 0;i < data.length;i++) {
         if(data[i].email === loginEmail.value && data[i].password === loginPassword.value) {
+            localStorage.setItem('loggedInUser', JSON.stringify(data[i]));
                 window.location.replace('home.html');
                 return;
         }
+
+
     }
         alert('Login Information Not Found');
 })

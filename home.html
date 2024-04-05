@@ -6,6 +6,10 @@
     <title>Products</title>
     <link rel="stylesheet" href="home.css" />
     <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
       integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
@@ -14,14 +18,55 @@
     />
   </head>
   <body>
-    <header>
+    <!-- <header>
       <h1>Product Table</h1>
-    </header>
+    </header> -->
+
+    <!-- <header>
+      <nav id="navbar">
+        <h1>Product Management</h1>
+        <ul>
+          <!-- <li> <a href="index.html">Register</a> </li> -->
+          <!-- <li><a href="login.html">Logout</a></li> -->
+        <!-- </ul> -->
+      <!-- </nav> -->
+    <!-- </header> -->
+
+
+    <div class="sidebar">
+      <div class="top">
+        <div class="logo">
+          <!-- <i class="bx bxl-codepen"></i> -->
+          <h2>Product Management</h2>
+        </div> 
+        <!-- <i class="bx bx-menu" id="sidebar-menu-btn"></i> -->
+      </div>
+      <div class="user">
+        <!-- <img class="user-img" src="images/Picture.jpg" alt="user image" /> -->
+        <!-- <i class="bx bxs-user-rectangle user-img"></i> -->
+        <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAArlJREFUSEvFlluIjlEUhp9xiqSEyaFEzuVKIqKUXKLkgiuhFCkhhJqUUyQhUhQlFwp3uOKC5JCQU+RULhAhLhwS4nuntf/2v9vf3t/8M5pVU9P/7bXedXzXaqKTpKmTcGkrcBdgMjACGGJOvwVeAreAv1UDqQo8DNgMzAf6lxj/AJwFdgKvcw7kgHsALcCGwqD+ryI/gR3mwJ8yhRTwYOBc8TexClrkzRXL0KeYfhnwcOAGMKhBUKem2k8BPoZ2YsB9gdvAyHaCOvW7wHTgh28vBnwcWJIB/Q08tTfjgK6Z97uBjSngscATSI7ZGWAF4Go3oBito8C8BPh3QOVT57dKGLEMLEsYUNo0x2G3quPvA4q+TLYWc74lBqx0fQb6JJRXAodLvq8tdPcmdFWammN+xDOAy5lazQYulLzRN41fSsYAz8NULwJOZBTXAPsbjFhqc51zfsTrgD0Z4EfABEBd7Us34DEwOqO/GjgQRpyrkbN5Glhu/aDfmoEjma52usLYFwIvBE5lPHafFbHGrrtFmZtjp7cAkON14yRqE03+T5lkrFgHrF37zlIXA9euFfGrqxXtN3vUGxgPzDFqLHP8DTDU7eyQQDSjYqVQ7gGLjSRSGVFEJ4uSiQFDUW1V41YJgUdZNOpSJ+8touh6iwDoMnkI9PO+/bKrpXYgxJbEMWCpp/QFmFWk8k7F4mt/XyrmXVvOyUFgla8fA5anN4OZ/ApsBw55tQ39ENXK+KaCD1R3Jw+AaYBs1KTsENAxdx0YGFjXlrkIXAOe2TrU3hbdzgR6Be9f2SGgctVJ6vRRrc4bU1XMct2zq0YqbTp9nIWetsrWV1j2TkfH3jZgV2R9ZlMdRigOVu207P2m8d8pnToSdG20+7wNHRA1TgV0Z+sKFanooH9hjNThB30jNU7q5A76Dgd0Bv8BIyR2H9l/W1MAAAAASUVORK5CYII="/> -->
+        <i class='bx bxs-user-circle user-img'></i>
+        <div class="user-info">
+          <!-- <p id="sidebarUsername"></p> -->
+          <!-- <p id="sidebarUserEmail"></p> -->
+        </div>
+      </div>
+      <ul>
+        <li>
+          <a href="login.html" id="logout">
+            <!-- <i class="bx bx-log-out"></i> -->
+            <span class="nav-item">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
 
     <main>
+      <h1 id="sidebarUsername"></h1>
+      <h1 id="sidebarUserEmail"></h1>
       <div class="addModalParent" style="text-align: end; width: 77.3%;" >
         <button id="addModalButton">Add Products</button>
-        <button id="logoutButton">Logout</button>
       </div>
 
       <div class="container">
@@ -85,6 +130,6 @@
 
 
 
-    <script src="home.js"></script>
+    <script type="module" src="home.js"></script>
   </body>
 </html>

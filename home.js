@@ -1,3 +1,5 @@
+// import userData from './login.js';
+
 
 // Modal Functionality
 
@@ -6,11 +8,13 @@ let tableBody = document.getElementById("tableBody");
 let dataArray = []
 let flag = false
 let nindex = null
+// let btnvalue = true
 
 // Add Products Functionality
 let showModalButton = document.querySelector('#addModalButton')
 let closeModalButton = document.getElementById('mcloseButton')
-let addProductID = document.getElementById('addProductID')
+let addProductID = document.getElementById('addProductID');
+// console.log(addProductID)
 let addProductName = document.getElementById('addProductName')
 let addProductTitle = document.getElementById('addProductTitle')
 let addProductVendor = document.getElementById('addProductVendor')
@@ -25,14 +29,21 @@ closeModalButton.addEventListener('click',function () {
 })
   showModalButton.addEventListener('click',function() {
     modalContainer.style.display = 'block'
+    modalTitle.textContent = 'Add Product'
+  addProductsButton.textContent = 'Add'
     // updateProductsButton.style.display = 'none'
 
 })
 
 let addProductsButton = document.getElementById('addProductsButton');
+
 addProductsButton.addEventListener('click',function() {
-  // modalTitle.innerHTML = 'Add Product'
-  // addProductsButton.innerHTML = 'Add'
+    
+  // if(btnvalue) {
+  //   modalTitle.textContent = 'Add Product'
+  // addProductsButton.textContent = 'Add'
+  // btnvalue = false
+  // }
 
     if(flag) {
           if(addProductID.value && addProductName.value && addProductTitle.value && addProductVendor.value) {
@@ -85,12 +96,18 @@ function showProducts() {
       <td>${element.productTitle}</td>
       <td>${element.productVendor}</td>
       <td>
-      <button class='edit' onclick='editProducts(${index})'>Edit</button>
+      <button class='edit editButton'  onclick='editProducts(${index})'>Edit</button>
       <button class='delete' onclick='deleteProducts(${index})' >Delete</button>
       </td>
-    </tr>`
+    </tr>`;
+
   })
 }
+
+// const editButton = document.querySelector('.editButton');
+//     // console.log(editButton)
+//     addProductsButton.textContent = 'Update'
+//     modalTitle.textContent = 'Update Product'
 
 
 function deleteProducts(index) {
@@ -122,13 +139,32 @@ function retrieveData() {
   }
 }
 
-let logoutButton = document.getElementById('logoutButton')
-logoutButton.addEventListener('click',function() {
-  window.location.replace('login.html')
-})
-
 retrieveData();
 
 showProducts();
 
+
+
+
+
+// sidebrrr
+
+const sidebarUsername = document.querySelector("#sidebarUsername");
+const sidebarUserEmail = document.querySelector("#sidebarUserEmail");
+console.log(sidebarUsername.innerHTML)
+console.log(sidebarUserEmail.innerHTML)
+
+
+// session
+  let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  // console.log(loggedInUser)
+  if (loggedInUser) {
+      // Display user's name and email on the home page
+      sidebarUsername.innerHTML = `${loggedInUser.name}`;
+      sidebarUserEmail.innerHTML = `${loggedInUser.email}`;
+      console.log(sidebarUsername.innerHTML)
+      console.log(sidebarUserEmail.innerHTML)
+  } else {
+      window.location.replace('login.html');
+  }
 
