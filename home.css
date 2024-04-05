@@ -12,21 +12,10 @@
   list-style: none;
 }
 html,body {
-  /* width: 100%; */
   overflow-x: hidden;
-}
-body{
-  /* min-height: 100vh; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-  /* background: #4070f4; */
-  /* background-color: #f1f1f1; */
-  background-color: white;
 }
 header {
   width: 100%;
-  /* background-color: #f1f1f1; */
   background: #4070f4;
 }
 header #navbar {
@@ -61,8 +50,37 @@ main {
     /* width: 37%; */
     height: 600px;
     overflow:auto;
-    background-color: #fff;
+    background-color: white;
     /* box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2); */
+}
+.tablecontainer h2{
+  font-weight: 600;
+  font-size: 35px;
+  color: #4070f4;
+}
+.tablecontainer .bx {
+  font-size: 35px;
+  color: #4070f4;
+}
+.tablecontainer .heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tablecontainer .buttonsParent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 10px 0;
+}
+.tablecontainer input[type="text"] {
+  border: 2px solid #4070f4;
+  padding: 10px 20px;
+  color: #4070f4;
 }
 table {
     border-collapse: collapse;
@@ -300,13 +318,11 @@ button {
 .leftside .logout:hover a{
   cursor: pointer;
   background-color: white;
-  color: #4070f4 !important;
+  color: #4070f4;
 }
 
 main .rightSide {
   width: 100%;
   height: 99.9vh;
-  background-color: burlywood;
-  padding: 50px 40px;
+  padding: 50px;
 }
-
