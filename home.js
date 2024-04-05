@@ -151,8 +151,8 @@ showProducts();
 
 const sidebarUsername = document.querySelector("#sidebarUsername");
 const sidebarUserEmail = document.querySelector("#sidebarUserEmail");
-console.log(sidebarUsername.innerHTML)
-console.log(sidebarUserEmail.innerHTML)
+// console.log(sidebarUsername.innerHTML)
+// console.log(sidebarUserEmail.innerHTML)
 
 
 // session
