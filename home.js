@@ -1,6 +1,3 @@
-// import userData from './login.js';
-
-
 // Modal Functionality
 
 let modalContainer = document.getElementById("addmodalContainer");
@@ -11,13 +8,15 @@ let nindex = null
 // let btnvalue = true
 
 // Add Products Functionality
-let showModalButton = document.querySelector('#addModalButton')
+let showModalButton = document.querySelector('#showModalButton')
 let closeModalButton = document.getElementById('mcloseButton')
 let addProductID = document.getElementById('addProductID');
-// console.log(addProductID)
 let addProductName = document.getElementById('addProductName')
 let addProductTitle = document.getElementById('addProductTitle')
 let addProductVendor = document.getElementById('addProductVendor')
+let buyingPrice = document.getElementById('buyingPrice')
+let salePrice = document.getElementById('salePrice')
+let productType = document.getElementById('productType')
 let modalTitle = document.getElementById('modalTitle')
 
 closeModalButton.addEventListener('click',function () {
@@ -26,23 +25,20 @@ closeModalButton.addEventListener('click',function () {
   addProductName.value = ''
   addProductTitle.value = ''
   addProductVendor.value = ''
+  buyingPrice.value = ''
+  salePrice.value = ''
+  productType.value = ''
 })
-//   showModalButton.addEventListener('click',function() {
-//     modalContainer.style.display = 'block'
-//     modalTitle.textContent = 'Add Product'
-//   addProductsButton.textContent = 'Add'
+  showModalButton.addEventListener('click',function() {
+    modalContainer.style.display = 'block'
+    modalTitle.textContent = 'Add Product'
+  addProductsButton.textContent = 'Add'
 
-// })
+})
 
 let addProductsButton = document.getElementById('addProductsButton');
 
 addProductsButton.addEventListener('click',function() {
-    
-  // if(btnvalue) {
-  //   modalTitle.textContent = 'Add Product'
-  // addProductsButton.textContent = 'Add'
-  // btnvalue = false
-  // }
 
     if(flag) {
           if(addProductID.value && addProductName.value && addProductTitle.value && addProductVendor.value) {
@@ -51,6 +47,9 @@ addProductsButton.addEventListener('click',function() {
             copy[nindex].productName = addProductName.value;
             copy[nindex].productTitle = addProductTitle.value;
             copy[nindex].productVendor = addProductVendor.value;
+            copy[nindex].buyingPrice = buyingPrice.value;
+            copy[nindex].salePrice = salePrice.value;
+            copy[nindex].productType = productType.value;
           localStorage.setItem("addedProducts" , JSON.stringify(copy));
           flag = false
           nindex = null
@@ -64,9 +63,12 @@ addProductsButton.addEventListener('click',function() {
         productName:addProductName.value,
         productTitle:addProductTitle.value,
         productVendor:addProductVendor.value,
+        buyingPrice:buyingPrice.value,
+        salePrice:salePrice.value,
+        productType:productType.value,
       }
       
-      if(addProductID.value && addProductName.value && addProductTitle.value && addProductVendor.value) {
+      if(addProductID.value && addProductName.value && addProductTitle.value && addProductVendor.value && buyingPrice && salePrice && productType) {
         dataArray.push(productDetails)
     localStorage.setItem('addedProducts',JSON.stringify(dataArray));
       } else {
@@ -82,31 +84,34 @@ addProductsButton.addEventListener('click',function() {
   addProductName.value = ''
   addProductTitle.value = ''
   addProductVendor.value = ''
+  buyingPrice.value = ''
+  salePrice.value = ''
+  productType.vlue = ''
 
 })
 
 function showProducts() {
   tableBody.innerHTML = ''
-  dataArray.forEach((element,index)=> {
+  dataArray.forEach((element,i)=> {
     tableBody.innerHTML += 
-    `<tr>
-      <td>${element.productID}</td>
-      <td>${element.productName}</td>
-      <td>${element.productTitle}</td>
-      <td>${element.productVendor}</td>
+    `<tr class='tableRows'>
+      <td class='tableData'>${element.productID}</td>
+      <td class='tableData'>${element.productName}</td>
+      <td class='tableData'>${element.productTitle}</td>
+      <td class='tableData'>${element.productVendor}</td>
+      <td class='tableData'>${element.buyingPrice}</td>
+      <td class='tableData'>${element.salePrice}</td>
+      <td class='tableData'>${element.productType}</td>
       <td>
-      <button class='edit editButton'  onclick='editProducts(${index})'>Edit</button>
-      <button class='delete' onclick='deleteProducts(${index})' >Delete</button>
-      </td>
+    <button class='edit' onClick='editProducts(${i})'>Edit</button>
+    <button class='delete' onClick='deleteProducts(${i})'>Delete</button>
+    </td>
+
     </tr>`;
 
   })
 }
 
-// const editButton = document.querySelector('.editButton');
-//     // console.log(editButton)
-//     addProductsButton.textContent = 'Update'
-//     modalTitle.textContent = 'Update Product'
 
 
 function deleteProducts(index) {
@@ -126,6 +131,9 @@ function editProducts(i) {
   addProductName.value = products.productName
   addProductTitle.value = products.productTitle
   addProductVendor.value = products.productVendor
+  buyingPrice.value = products.buyingPrice
+  salePrice.value = products.salePrice
+  productType.value = products.productType
   flag = true
   nindex = i
 
@@ -150,20 +158,50 @@ showProducts();
 
 const sidebarUsername = document.querySelector("#sidebarUsername");
 const sidebarUserEmail = document.querySelector("#sidebarUserEmail");
-// console.log(sidebarUsername.innerHTML)
-// console.log(sidebarUserEmail.innerHTML)
 
 
-// session
+// LoggedInUser
   let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-  // console.log(loggedInUser)
   if (loggedInUser) {
       // Display user's name and email on the home page
       sidebarUsername.innerHTML = `${loggedInUser.name}`;
       sidebarUserEmail.innerHTML = `${loggedInUser.email}`;
-      console.log(sidebarUsername.innerHTML)
-      console.log(sidebarUserEmail.innerHTML)
   } else {
       window.location.replace('login.html');
   }
+
+
+  
+  // Search Functionality
+  
+  const searchInput = document.getElementById('searchInput')
+  // console.log(searchInput.value)
+
+  searchInput.addEventListener('input', function() {
+    var searchText = searchInput.value.toLowerCase();
+    console.log(searchText)
+    var rows = document.querySelectorAll('.tableRows');
+    
+    rows.forEach(function(row) {
+        var cells = row.querySelectorAll('.tableData');
+        var found = false;
+        
+        cells.forEach(function(cell) {
+            if (cell.textContent.toLowerCase().startsWith(searchText)) {
+                found = true;
+            }
+        });
+        
+        if (found) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+        searchInput.addEventListener('input',function () {
+          if(searchInput.value === '') {
+            row.style.display = ''
+          }
+        })
+    });
+});
 
