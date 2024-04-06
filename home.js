@@ -27,13 +27,12 @@ closeModalButton.addEventListener('click',function () {
   addProductTitle.value = ''
   addProductVendor.value = ''
 })
-  showModalButton.addEventListener('click',function() {
-    modalContainer.style.display = 'block'
-    modalTitle.textContent = 'Add Product'
-  addProductsButton.textContent = 'Add'
-    // updateProductsButton.style.display = 'none'
+//   showModalButton.addEventListener('click',function() {
+//     modalContainer.style.display = 'block'
+//     modalTitle.textContent = 'Add Product'
+//   addProductsButton.textContent = 'Add'
 
-})
+// })
 
 let addProductsButton = document.getElementById('addProductsButton');
 
