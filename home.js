@@ -187,7 +187,7 @@ const sidebarUserEmail = document.querySelector("#sidebarUserEmail");
         var found = false;
         
         cells.forEach(function(cell) {
-            if (cell.textContent.toLowerCase().startsWith(searchText)) {
+            if (cell.textContent.toLowerCase().includes(searchText)) {
                 found = true;
             }
         });
@@ -204,4 +204,25 @@ const sidebarUserEmail = document.querySelector("#sidebarUserEmail");
         })
     });
 });
+
+const addColumnButton = document.getElementById('addColumnButton');
+addColumnButton.addEventListener('click', addNewColumn);
+
+function addNewColumn() {
+  const table = document.getElementById('productTable');
+  const rowCount = table.rows.length;
+
+  // Add a new header cell
+  const headerRow = table.rows[0];
+  const newHeaderCell = document.createElement('th');
+  newHeaderCell.textContent = 'New Column';
+  headerRow.appendChild(newHeaderCell);
+
+  // Add a new cell in each row (excluding the header row)
+  for (let i = 1; i < rowCount; i++) {
+    const newRowCell = table.rows[i].insertCell(-1); 
+    newRowCell.textContent = 'New Data'; // Set the cell content (you can customize this)
+  }
+}
+
 
