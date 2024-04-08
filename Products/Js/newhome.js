@@ -6,21 +6,24 @@ let tableBody = document.getElementById('tableBody')
 let flag = false
 let indexValue = null
 
-function showModal(title,button){
+function showModal(){
     modalContainer.style.display = 'block'
-    modalTitle.innerHTML = title
-    modalAddButton.innerHTML = button
 }
 
 function closeModal(){
     modalContainer.style.display = 'none'
+    addProductID.value = ''
+  addProductName.value = ''
+  addProductTitle.value = ''
+  addProductVendor.value = ''
+  addBuyingPrice.value = ''
+  addSalePrice.value = ''
+  addProductType.value = ''
 }
 
 // Add Products funtionality
 let emptyDataArray = []
 
-let savedProducts = JSON.parse(localStorage.getItem('AddedProducts')) || [];
-// console.log(savedProducts)
 displayProducts();
 
 
@@ -35,18 +38,16 @@ let addSalePrice = document.getElementById('salePrice')
 
 function productsAdded() {
 
-    showModal('Add Product','Add');
-
     if(flag) {
         if(addProductID.value && addProductName.value && addProductTitle.value && addProductVendor.value && addBuyingPrice.value && addSalePrice.value && addProductType.value) {
             let copyArrayData = [...emptyDataArray]
             copyArrayData[indexValue].productID = addProductID.value;
             copyArrayData[indexValue].productName = addProductName.value;
-            copy[indexValue].productTitle = addProductTitle.value;
+            copyArrayData[indexValue].productTitle = addProductTitle.value;
             copyArrayData[indexValue].productVendor = addProductVendor.value;
-            copyArrayData[indexValue].buyingPrice = buyingPrice.value;
-            copyArrayData[indexValue].salePrice = salePrice.value;
-            copyArrayData[indexValue].productType = productType.value;
+            copyArrayData[indexValue].buyingPrice = addBuyingPrice.value;
+            copyArrayData[indexValue].salePrice = addSalePrice.value;
+            copyArrayData[indexValue].productType = addProductType.value;
           localStorage.setItem("addedProducts" , JSON.stringify(copyArrayData));
           flag = false
           indexValue = null
@@ -54,6 +55,9 @@ function productsAdded() {
             alert('Cannot update Empty input field')
           }
     } else {
+    showModal();
+        modalTitle.innerHTML = 'Add Product'
+    modalAddButton.innerHTML = 'Add'
         let allProductsValue = {
             productID:addProductID.value,
             productName:addProductName.value,
@@ -80,8 +84,6 @@ function productsAdded() {
     displayProducts();
     // resetInputs();
 }
-
-console.log(savedProducts)
 
 // Display Saved LocalStorage Products 
 function displayProducts() {
@@ -123,20 +125,31 @@ function deleteProducts(index) {
 }
 
 function updateProducts(index) {
-    showModal('Update Product','Update');
+    showModal();
+    modalTitle.innerHTML = 'Update Product'
+    modalAddButton.innerHTML = 'Update'
 
     let allProductsCopy = emptyDataArray[index];
 
-    addProductID.value = products.productID
-    addProductName.value = products.productName
-    addProductTitle.value = products.productTitle
-    addProductVendor.value = products.productVendor
-    addBuyingPrice.value = products.buyingPrice
-    addSalePrice.value = products.salePrice
-    addProductType.value = products.productType
+    addProductID.value = allProductsCopy.productID
+    addProductName.value = allProductsCopy.productName
+    addProductTitle.value = allProductsCopy.productTitle
+    addProductVendor.value = allProductsCopy.productVendor
+    addBuyingPrice.value = allProductsCopy.productBuyingPrice
+    addSalePrice.value = allProductsCopy.productSalePrice
+    addProductType.value = allProductsCopy.productType
 
     flag = true;
     indexValue = index
 }
+
+function retrieveData() {
+    const savedData = localStorage.getItem('AddedProducts');
+    if (savedData) {
+        emptyDataArray = JSON.parse(savedData);
+    }
+}
+
+retrieveData();
 
 displayProducts();
