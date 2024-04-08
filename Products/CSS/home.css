@@ -11,9 +11,6 @@
   text-decoration: none;
   list-style: none;
 }
-/* html,body {
-  overflow-x: hidden;
-} */
 header {
   width: 100%;
   background: #4070f4;
@@ -26,7 +23,6 @@ header #navbar {
   gap: 20px;
   align-items: center;
   margin: 0 auto;
-  /* color: #0e4bf1; */
   color: white;
   justify-content: space-between;
 }
@@ -38,7 +34,6 @@ header #navbar {
 
 #navbar ul a {
   color: white;
-  /* color: #0e4bf1; */
   font-weight: 600;
 }
 
@@ -70,7 +65,7 @@ main {
   margin: 10px 0;
 }
 .contentContainer .buttonsParent button {
-  margin-right: 10px;
+  margin-right: 25px;
 }
 .contentContainer .searchBar {
   width: 28%;
@@ -84,8 +79,6 @@ main {
 }
 .tableWrapper {
   width: 1155px;
-  /* width: 100%; */
-  /* height: 460px; */
   height: 66vh;
   overflow: auto;
   margin-top: 25px;
@@ -94,7 +87,6 @@ main {
 }
 table {
   width:100%;
-  /* height: 100%; */
   overflow: auto;
   border-collapse: collapse;
 }
@@ -136,7 +128,7 @@ button {
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
   }
   
   ::-webkit-scrollbar-track {
@@ -145,20 +137,8 @@ button {
   
   ::-webkit-scrollbar-thumb {
     background: #4070f4;
-    border-radius: 3px;
-    padding: 5px 0; 
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #4070f4;
-  }
-  
-
-
-.actions {
-    width: 10vw;
-}
-
+    border-radius: 6px;
+  }  
 
 /* Modal */
 
@@ -269,22 +249,6 @@ button {
 }
 
 
-@media (max-width:700px) {
-  .container {
-    width: 95%;
-  }
-  .modal-content .inputBox {
-    flex-wrap: wrap;
-  }
-  .modal-content .inputBox .left {
-    width: 100%;
-  }
-  .modal-content .inputBox .right {
-    width: 100%;
-  }
-}
-
-
 /* SideBrr */
 
 .leftside .userImg {
@@ -294,16 +258,20 @@ button {
   border: 2px solid white;
 }
 .leftside .userInfo {
-  width: 40px;
-  padding: 20px;
+  /* width: 40px; */
+  padding: 15px;
   border-color: #fff;
 }
 
 .leftside {
+  position: relative;
   height: 99.9vh;
   background-color: #4070f4;
   color: white;
-  padding: 1.9rem 1.6rem;
+  padding: 1.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .leftside .first .logo {
@@ -311,25 +279,27 @@ button {
   height: 5rem;
 }
 
-.user {
+.leftside .user {
   display: flex;
   align-items: center;
 }
 
-.leftside .logout a {
+.leftside .logout {
   padding: 10px 0;
   border-radius: 5px;
   padding-left: 3px;
-  width: 100%;
+  width: 85%;
   display: block;
   font-size: 18px;
   font-weight: 500;
-  color: white;
-}
-.leftside .logout:hover a{
-  cursor: pointer;
+  /* color: white; */
+  position: absolute;
+  bottom: 100px;
   background-color: white;
   color: #4070f4;
+}
+.leftside .logout:hover{
+  cursor: pointer;
 }
 
 main .rightSide {

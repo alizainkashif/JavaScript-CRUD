@@ -10,7 +10,7 @@ loginButton.addEventListener('click',function(event) {
     for(let i = 0;i < data.length;i++) {
         if(data[i].email === loginEmail.value && data[i].password === loginPassword.value) {
             localStorage.setItem('loggedInUser', JSON.stringify(data[i]));
-                window.location.replace('home.html');
+                window.location.replace('../Products/home.html');
                 return;
         }
 
