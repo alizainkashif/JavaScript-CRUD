@@ -9,6 +9,6 @@ A product management website made using HTML/CSS and, JavaScript. The user can r
 - Add Custom Column 
 
 # Technologies Used
-HTML
-CSS
-JavaScript
+- HTML
+- CSS
+- JavaScript
