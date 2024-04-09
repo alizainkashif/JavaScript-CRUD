@@ -1,8 +1,14 @@
-# JavaScript CRUD
-Task given by our Team Lead to Register &amp; Login and then perform CRUD Operation via LocalStorage. 
+# Project Management
+A product management website made using HTML/CSS and, JavaScript. The user can register and login. The user can perform simple CRUD operations. Using LocalStorage for storage.
 
-# Register 
-# Login 
-# Add Products
-# Update Products
-# Delete Products
+# Features
+- User Register
+- User Login
+- User can perform CRUD Operations
+- SearchBar
+- Add Custom Column 
+
+# Technologies Used
+HTML
+CSS
+JavaScript
