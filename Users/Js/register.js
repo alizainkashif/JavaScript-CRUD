@@ -26,7 +26,7 @@
 
             // console.log(' data saved successfully')
 
-            window.location.replace('./login.html');
+            window.location.replace('./Users/login.html');
             // console.log('Redirecting to login page...');
 
         } catch (error) {
