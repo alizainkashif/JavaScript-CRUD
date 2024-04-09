@@ -25,7 +25,6 @@
         <div class="logo">
           <h2>Product Management</h2>
         </div> 
-        <!-- <i class="bx bx-menu" id="sidebar-menu-btn"></i> -->
       </div>
       <div class="user">
         <i class='bx bxs-user-circle userImg'></i>
@@ -62,7 +61,7 @@
 
            <div class="addProducts">
             <button id="addColumnButton">Add Column</button>
-            <button id="showModalButton" onclick="showModal()">Add Products</button>
+            <button id="showAddModalButton">Add Products</button>
            </div>
         </div>
         <div class="tableWrapper">
@@ -97,44 +96,44 @@
     <div class="addModalContent">
       <h2 id="modalTitle">Add Product</h2>
 
-      <div class="inputBox">
-        <div class="left">
-          <div class="inputs">
-            <label for="addProductID">ID</label>
-            <input type="number" id="addProductID" required>
-          </div>
-          <div class="inputs">
-            <label for="addProductTitle">Product Title</label>
-            <input type="text" id="addProductTitle" required>
-          </div>
-          <div class="inputs">
-            <label for="buyingPrice">Buying Price</label>
-            <input type="text" id="buyingPrice" required>
-          </div>
-          <div class="inputs">
-            <label for="productType">Product Type</label>
-            <input type="text" id="productType" required>
-          </div>
-        </div>
-        <div class="right">
-          <div class="inputs">
-            <label for="addProductName">Product Name</label>
-            <input type="text" id="addProductName" required>
-          </div>
-          <div class="inputs">
-            <label for="ProductVendor">Product Vendor</label>
-            <input type="text" id="addProductVendor" required>
-          </div>
-          <div class="inputs">
-            <label for="salePrice">Sale Price</label>
-            <input type="text" id="salePrice" required>
-          </div>
-        </div>
-      </div>
 
+        <div class="inputBox">
+          <div class="left">
+            <div class="inputs">
+              <label for="addProductID">ID</label>
+              <input type="number" id="addProductID" required>
+            </div>
+            <div class="inputs">
+              <label for="addProductTitle">Product Title</label>
+              <input type="text" id="addProductTitle" required>
+            </div>
+            <div class="inputs">
+              <label for="buyingPrice">Buying Price</label>
+              <input type="text" id="buyingPrice" required>
+            </div>
+            <div class="inputs">
+              <label for="productType">Product Type</label>
+              <input type="text" id="productType" required>
+            </div>
+          </div>
+          <div class="right">
+            <div class="inputs">
+              <label for="addProductName">Product Name</label>
+              <input type="text" id="addProductName" required>
+            </div>
+            <div class="inputs">
+              <label for="ProductVendor">Product Vendor</label>
+              <input type="text" id="addProductVendor" required>
+            </div>
+            <div class="inputs">
+              <label for="salePrice">Sale Price</label>
+              <input type="text" id="salePrice" required>
+            </div>
+          </div>
+        </div>
       <div class="buttons">
-        <button id="modalAddButton" onclick="productsAdded()" >Add</button>
-        <button id="mcloseButton" onclick="closeModal()" >Close</button>
+        <button id="productsAddButton" >Add</button>
+        <button id="modalcloseButton" >Close</button>
       </div>
 
     </div>
