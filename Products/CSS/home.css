@@ -284,7 +284,7 @@ button {
   align-items: center;
 }
 
-.leftside .logout {
+.leftside #logout {
   padding: 10px 0;
   border-radius: 5px;
   padding-left: 3px;
@@ -298,7 +298,7 @@ button {
   background-color: white;
   color: #4070f4;
 }
-.leftside .logout:hover{
+.leftside #logout:hover{
   cursor: pointer;
 }
 

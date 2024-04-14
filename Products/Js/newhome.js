@@ -204,7 +204,9 @@ function addNewColumn() {
 
 // Logout
 
-const logout = document.querySelector('.logout')
+const logout = document.getElementById('logout')
+console.log(logout)
+
 logout.addEventListener('click',function () {
   window.location.replace('../users/login.html')
 })
